@@ -1,0 +1,27 @@
+pipeline{
+    agent any
+    tools {
+        maven "maven-3.9.9"
+    }    
+echo "the branch name is : ${BRANCH_NAME}"
+    stages{
+        stage("git checkout code"){
+            steps{
+                git branch: 'dev', credentialsId: '3fee835f-7f03-4f76-ab37-4eaf181478fd', url: 'https://github.com/Sameeraprasad/maven-web-application.git'
+            }
+        }
+        stage("build"){
+            steps{
+                sh "mvn clean package"
+            }
+        }
+        stage("deploy to container"){
+            steps{
+                sshagent(['0a463e54-cab4-45fa-be80-168b798e8c5c']) {
+                    sh "ssh -o StrictHostKeyChecking=no ec2-user@13.234.111.247 rm -rf /opt/tomcat/webapps/maven-web-application.war"
+    sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/web-application-scriptedway/target/maven-web-application.war ec2-user@172.31.42.118:/opt/tomcat/webapps"
+}
+            }
+        }
+    }
+}
