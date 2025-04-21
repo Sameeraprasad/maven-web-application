@@ -3,11 +3,10 @@ pipeline{
     tools {
         maven "maven-3.9.9"
     }    
-echo "the branch name is : ${BRANCH_NAME}"
-    stages{
-        stage("git checkout code"){
-            steps{
-                git branch: 'dev', credentialsId: '3fee835f-7f03-4f76-ab37-4eaf181478fd', url: 'https://github.com/Sameeraprasad/maven-web-application.git'
+
+
+                git branch: 'qa', credentialsId: '3fee835f-7f03-4f76-ab37-4eaf181478fd', url: 'https://github.com/Sameeraprasad/maven-web-application.git'
+
             }
         }
         stage("build"){
