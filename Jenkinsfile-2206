@@ -8,6 +8,7 @@ pipeline {
         stage("show buildnumber"){
             steps{
                 echo "build number is:${env.BUILD_NUMBER}"
+echo "the branchname is:${env.BRANCH_NAME}"
             }
         }
         stage("checkout code"){
