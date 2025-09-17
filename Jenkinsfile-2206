@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    /*tools {
+        maven "maven-3.9.11"
+    }*/
+    
+    stages {
+        stage("show buildnumber"){
+            steps{
+                echo "build number is:${env.BUILD_NUMBER}"
+              echo "branchname:${env.BRANCH_NAME}"
+            }
+        }
+        stage("checkout code"){
+            steps{
+                git credentialsId: 'efbe1f2d-d3a6-4ea1-b650-86cce8fe37fc', url: 'https://github.com/Sameeraprasad/maven-web-application.git'
+            }
+        }
+    /*   stage ("build"){
+            steps{
+                sh "mvn clean package"
+            }
+        }
+        stage ("quality checking"){
+            steps{
+                sh "mvn sonar:sonar"
+            }
+        }
+        stage("store artifacts into nexus"){
+            steps{
+                sh "mvn deploy"
+            }
+        }
+        stage ("deploy"){
+            steps{
+                sshagent(['ea5dbe41-5148-419b-9a86-01c741daae40']) {
+    sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/maven-scripted/target/maven-web-application.war ec2-user@43.205.233.65:/opt/tomcat/webapps/"
+}  
+            }
+        }*/
+    }
+}
