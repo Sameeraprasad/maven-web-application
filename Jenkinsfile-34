@@ -13,7 +13,7 @@ pipeline {
         }
         stage("checkout code"){
             steps{
-                git branch: '${branchName}', credentialsId: 'efbe1f2d-d3a6-4ea1-b650-86cce8fe37fc', url: 'https://github.com/Sameeraprasad/maven-web-application.git'
+                credentialsId: 'efbe1f2d-d3a6-4ea1-b650-86cce8fe37fc', url: 'https://github.com/Sameeraprasad/maven-web-application.git'
             }
         }
        stage ("build"){
