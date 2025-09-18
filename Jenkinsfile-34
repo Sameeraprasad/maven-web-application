@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    tools {
+        maven "maven-3.9.11"
+    }
+    
+    stages {
+        stage("show buildnumber"){
+            steps{
+                echo "build number is:${env.BUILD_NUMBER}"
+                echo "branchname is:${env.BRANCH_NAME}"
+            }
+        }
+        stage("checkout code"){
+            steps{
+                 credentialsId: 'efbe1f2d-d3a6-4ea1-b650-86cce8fe37fc', url: 'https://github.com/Sameeraprasad/maven-web-application.git'
+            }
+        }
+       stage ("build"){
+            steps{
+                sh "mvn clean package"
+            }
+        }
