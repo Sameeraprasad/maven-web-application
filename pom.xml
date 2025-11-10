@@ -98,7 +98,7 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://65.2.54.233:8081/repository/maven-web-mixed-repo/</url>
+	      <url>http://65.0.251.48:8081/repository/maven-web-mixed-repo/</url>
 	    </repository>
 	    <!--
 	    <snapshotRepository>
