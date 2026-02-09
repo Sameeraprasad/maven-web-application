@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    options {
+  buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '2')
+  timestamps()
+}
+    tools{
+        maven "maven3.9.11"
+    }
+    stages{
+        stage("gitcheckoutcode"){
+            steps{
+                git credentialsId: 'b62bd876-5a15-4688-abe4-65d70079f214', url: 'https://github.com/Sameeraprasad/maven-web-application.git'
+            }
+        }
+        stage("build"){
+            steps{
+                sh "mvn clean package"
+            }
+        }
+    }
+}
