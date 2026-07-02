@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maven-web-app
+  namespace: cp4i
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: maven-web-app
+  template:
+    metadata:
+      labels:
+        app: maven-web-app
+    spec:
+      containers:
+        - name: maven-web-app
+          image: IMAGE_PLACEHOLDER
+          ports:
+            - containerPort: 8080

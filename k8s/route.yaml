@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: maven-web-app
+  namespace: cp4i
+spec:
+  to:
+    kind: Service
+    name: maven-web-app
+  port:
+    targetPort: 8080
