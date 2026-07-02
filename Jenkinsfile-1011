@@ -1,0 +1,46 @@
+pipeline{
+agent any
+tools{
+maven "maven-3.9.11"
+}
+
+
+stages{
+stage("code from github"){
+steps{
+git credentialsId: 'dabe83b2-8680-4672-82cd-e673121569b4', url: 'https://github.com/Sameeraprasad/maven-web-application.git'
+}
+}
+stage("build"){
+steps{
+sh "mvn clean package"
+}
+}
+stage("sonarqube report"){
+steps{
+sh "mvn sonar:sonar"
+
+}
+
+}
+stage("deploy artifacts into artifact repo"){
+steps{
+sh "mvn deploy"
+
+}
+
+}
+stage("deploy artifacts into tomcat"){
+steps{
+sshagent(['5062d4f3-fa44-4615-a24e-5a84ef50dd75'])  {
+sh "scp -o StrictHostKeyChecking=no   /var/lib/jenkins/workspace/maven-declarative/target/maven-web-application.war ec2-user@65.2.82.163:/home/ec2-user/tomcat9/webapps/ "
+}
+
+}
+
+
+}
+}
+
+
+}
