@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1 align="center">Welcome to eidiko system integrators,hyderabad</h1>
-<h1 align="center">best company to get experience on openshift</h1>
+<h1 align="center">best company to get experience on openshift and devops</h1>
 <hr>
 <br>
 	<h1><h3> Server Side IP Address </h3><br>
