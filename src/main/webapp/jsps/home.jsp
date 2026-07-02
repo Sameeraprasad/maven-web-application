@@ -9,8 +9,8 @@
 </head>
 </head>
 <body>
-<h1 align="center">Welcome to Millennium software solutions  Ph No: +91-95439588689, +91-9980093216 ,+91-9900012028,Dwarakanagar,visakhapatnam,India</h1>
-<h1 align="center"> Millennium software solutions  Good Training center AWS DevOps with AWS,Python & AWS Solution Architect & Terraform and azure in Bangalore India.Teaching Real Time scnerios</h1>
+<h1 align="center">Welcome to eidiko system integrators,hyderabad</h1>
+<h1 align="center">best company to get experience on openshift</h1>
 <hr>
 <br>
 	<h1><h3> Server Side IP Address </h3><br>
